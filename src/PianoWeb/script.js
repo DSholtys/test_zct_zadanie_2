@@ -2,7 +2,7 @@ if (document.location.pathname.endsWith("piano.html")) {
     // PASTE ALL YOUR EXISTING script.js CODE HERE
     // (the const declarations, functions, event listeners, etc.)
     // Leave the connectWebSocket() call at the end inside the if block.
-    const WEBSOCKET_URL = "ws://172.20.10.12:81";
+    const WEBSOCKET_URL = "ws://192.168.0.192:81";
     const SOUND_FILES_PATH = "";
   
     const pianoKeys = document.querySelectorAll('.key[data-note]');
