@@ -1,44 +1,33 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP32 Web Piano</title>
+    <title>Web Piano</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .landing-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .landing-button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>ESP32 Web Piano</h1>
-
-
-
-    <div class="piano">
-
-        <div class="key white" data-note="c4" data-key="a"><span>C4</span></div>
-        <div class="key white" data-note="d4" data-key="s"><span>D4</span></div>
-        <div class="key white" data-note="e4" data-key="d"><span>E4</span></div>
-        <div class="key white" data-note="f4" data-key="f"><span>F4</span></div>
-        <div class="key white" data-note="g4" data-key="g"><span>G4</span></div>
-        <div class="key white" data-note="a4" data-key="h"><span>A4</span></div>
-        <div class="key white" data-note="b4" data-key="j"><span>B4</span></div>
-        <div class="key white" data-note="c5" data-key="k"><span>C5</span></div>
-
-      
+    <div class="landing-page">
+        <h1>Welcome to Web Piano</h1>
+        <button class="landing-button" onclick="location.href='piano.html'">Piano</button>
+        <button class="landing-button" onclick="location.href='training.html'">Training</button>
     </div>
-
-    <p id="ws-status">Статус WebSocket: Подключение...</p>
-
-    <!-- Контейнер для предзагруженных аудио файлов (скрыт) -->
-    <div id="audio-container" style="display: none;">
-        <audio id="audio_c4" src="c4.wav" preload="auto"></audio>
-        <audio id="audio_d4" src="d4.wav" preload="auto"></audio>
-        <audio id="audio_e4" src="e4.wav" preload="auto"></audio>
-        <audio id="audio_f4" src="f4.wav" preload="auto"></audio>
-        <audio id="audio_g4" src="g4.wav" preload="auto"></audio>
-        <audio id="audio_a4" src="a4.wav" preload="auto"></audio>
-        <audio id="audio_b4" src="b4.wav" preload="auto"></audio>
-        <audio id="audio_c5" src="c5.wav" preload="auto"></audio>
-       
-    </div>
-    <script src="script.js"></script>
 </body>
 </html>
