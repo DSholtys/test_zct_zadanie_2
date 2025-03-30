@@ -3,42 +3,80 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f0f0f0;
-    margin-top: 20px;
+    /* Gradient Background */
+    background: linear-gradient(to bottom, #a0c4ff, #f0f0f0);
+    min-height: 100vh; /* Ensure full height */
+    margin: 0; /* Remove default body margins */
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+/* Framed Content Container */
+.container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width for larger screens */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 1.2em;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #668cff;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    width: 150px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #a0c4ff;
 }
 
 .piano {
-    display: flex; /* Располагаем белые клавиши в ряд */
-    position: relative; /* Для позиционирования черных клавиш */
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    position: relative;
+    background-color: #444; /* Dark gray background */
+    padding: 10px;         /* Smaller padding */
+    border-radius: 15px;   /* Rounded corners */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
     margin-top: 20px;
-    height: 250px; /* Высота пианино */
+    height: 150px;      /* Shorter height */
+    width: 100%;         /* Full width within container */
+    max-width: 600px;   /* Maximum width of the piano */
+    margin-left: auto;   /* Center the piano */
+    margin-right: auto;
 }
-
 .key {
     border: 1px solid #555;
-    box-sizing: border-box; /* Чтобы padding/border входили в размер */
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Текст внизу клавиши */
-    padding-bottom: 10px;
+    align-items: flex-end;
+    padding-bottom: 5px;
     font-weight: bold;
-    cursor: default; /* Не кликабельно */
-    transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Плавный переход цвета */
+    cursor: default;
+    transition: background-color 0.1s ease, box-shadow 0.1s ease;
+    font-size: 0.8em;  /* Smaller font size for notes */
 }
 
+
 .key.white {
-    width: 60px;
-    height: 100%; /* Занимает всю высоту родителя .piano */
+    width: 12.5%;       /* Equal width white keys */
+    height: 100%;
     background-color: white;
     color: #333;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-    margin: 0 1px; /* Небольшой отступ между белыми */
+    border-radius: 8px;  /* More rounded corners */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    margin: 0;           /* No margin between keys */
 }
 
 .key.black {
@@ -96,10 +134,23 @@ body {
 }
 
 .landing-button {
-    padding: 10px 20px;
+    padding: 12px 24px; /* Slightly larger buttons */
     font-size: 1.2em;
     margin: 10px;
     cursor: pointer;
+    border-radius: 8px;
+    background-color: #668cff;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Button shadow */
+    transition: background-color 0.3s ease;
+    width: 150px; /* Equal width buttons */
+    text-align: center;
+}
+
+.landing-button:hover {
+    background-color: #ffa0ce; /* Lighter blue on hover */
+    transition: 0.7;
 }
 
 /* Training page key highlight */
