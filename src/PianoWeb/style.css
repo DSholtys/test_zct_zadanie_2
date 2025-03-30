@@ -1,0 +1,84 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin-top: 20px;
+}
+
+.piano {
+    display: flex; /* Располагаем белые клавиши в ряд */
+    position: relative; /* Для позиционирования черных клавиш */
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin-top: 20px;
+    height: 250px; /* Высота пианино */
+}
+
+.key {
+    border: 1px solid #555;
+    box-sizing: border-box; /* Чтобы padding/border входили в размер */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Текст внизу клавиши */
+    padding-bottom: 10px;
+    font-weight: bold;
+    cursor: default; /* Не кликабельно */
+    transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Плавный переход цвета */
+}
+
+.key.white {
+    width: 60px;
+    height: 100%; /* Занимает всю высоту родителя .piano */
+    background-color: white;
+    color: #333;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    margin: 0 1px; /* Небольшой отступ между белыми */
+}
+
+.key.black {
+    width: 38px;
+    height: 60%; /* Черные короче белых */
+    background-color: #222;
+    color: white;
+    position: absolute; /* Позиционируем относительно .piano */
+    z-index: 10; /* Поверх белых клавиш */
+    top: 20px; /* Отступ от верха .piano (совпадает с padding) */
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Позиционирование черных клавиш */
+.key.black.c4s { left: calc(20px + 60px * 1 - 38px / 2); } /* Между C4 и D4 */
+.key.black.d4s { left: calc(20px + 60px * 2 - 38px / 2); } /* Между D4 и E4 */
+.key.black.f4s { left: calc(20px + 60px * 4 - 38px / 2); } /* Между F4 и G4 */
+.key.black.g4s { left: calc(20px + 60px * 5 - 38px / 2); } /* Между G4 и A4 */
+.key.black.a4s { left: calc(20px + 60px * 6 - 38px / 2); } /* Между A4 и B4 */
+
+
+/* Стиль для активной (нажатой) клавиши */
+.key.active {
+    background-color: #a0c4ff; /* Цвет подсветки для белых */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3); /* Эффект вдавливания */
+}
+
+.key.black.active {
+    background-color: #668cff; /* Цвет подсветки для черных (если будут добавлены) */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Текст внутри клавиш */
+.key span {
+    font-size: 12px;
+}
+
+#ws-status {
+    margin-top: 20px;
+    font-style: italic;
+    color: #555;
+}

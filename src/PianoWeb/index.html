@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 Web Piano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ESP32 Web Piano</h1>
+
+
+
+    <div class="piano">
+        <!-- Белые клавиши с data-note и data-key -->
+        <div class="key white" data-note="c4" data-key="a"><span>C4</span></div>
+        <div class="key white" data-note="d4" data-key="s"><span>D4</span></div>
+        <div class="key white" data-note="e4" data-key="d"><span>E4</span></div>
+        <div class="key white" data-note="f4" data-key="f"><span>F4</span></div>
+        <div class="key white" data-note="g4" data-key="g"><span>G4</span></div>
+        <div class="key white" data-note="a4" data-key="h"><span>A4</span></div>
+        <div class="key white" data-note="b4" data-key="j"><span>B4</span></div>
+        <div class="key white" data-note="c5" data-key="k"><span>C5</span></div>
+
+      
+    </div>
+
+    <p id="ws-status">Статус WebSocket: Подключение...</p>
+
+    <!-- Контейнер для предзагруженных аудио файлов (скрыт) -->
+    <div id="audio-container" style="display: none;">
+        <audio id="audio_c4" src="c4.wav" preload="auto"></audio>
+        <audio id="audio_d4" src="d4.wav" preload="auto"></audio>
+        <audio id="audio_e4" src="e4.wav" preload="auto"></audio>
+        <audio id="audio_f4" src="f4.wav" preload="auto"></audio>
+        <audio id="audio_g4" src="g4.wav" preload="auto"></audio>
+        <audio id="audio_a4" src="a4.wav" preload="auto"></audio>
+        <audio id="audio_b4" src="b4.wav" preload="auto"></audio>
+        <audio id="audio_c5" src="c5.wav" preload="auto"></audio>
+        <!-- Добавь сюда <audio> для черных клавиш, если они используются -->
+        <!-- <audio id="audio_cs4" src="cs4.wav" preload="auto"></audio> -->
+    </div>
+
+    <!-- Подключаем JavaScript в самом конце -->
+    <script src="script.js"></script>
+</body>
+</html>
