@@ -8,15 +8,11 @@ let pressesRequired = 3;
 let currentPressCount = 0;
 let basicTrainingCompleted = false;
 
-//Reordered melodies with available keys
-const twinkleTwinkle = ["c4", "c4", "g4", "g4", "a4", "a4", "g4", "f4", "f4", "e4", "e4", "d4", "d4", "c4"];
-const dogWaltz = ["e4", "d4", "e4", "c4", "b4", "d4", "e4", "d4", "b4", "g4", "b4", "c5", "d4", "e4", "e4", "g4", "g4", "g4", "f4", "e4", "d4", "c4", "b4", "a4", "a4", "b4", "c5", "d4", "e4", "f4", "g4", "g4"];  //Rearranged
-const hedwigsTheme = ["b4", "e4", "g4", "f4", "e4", "b4", "d4", "f4", "e4", "b4"]; //Rearranged
+//Happy Birthday
+const happyBirthday = ["c4", "c4", "d4", "c4", "f4", "e4", "c4", "c4", "d4", "c4", "g4", "f4", "c4", "c4", "c5", "a4", "f4", "e4", "d4"];
 
 const melodies = [
-    { name: "Twinkle Twinkle Little Star", notes: twinkleTwinkle },
-    { name: "Dog Waltz", notes: dogWaltz },
-    { name: "Hedwig's Theme", notes: hedwigsTheme }
+    { name: "Happy Birthday", notes: happyBirthday }
 ];
 let currentMelodyIndex = 0;
 let melodyIndex = 0;
@@ -47,7 +43,7 @@ function startBasicTraining() {
     } else {
         basicTrainingCompleted = true;
         currentNoteIndex = 0;
-        trainingMessage.textContent = "Basic training complete! Click 'Next' to play the first melody.";
+        trainingMessage.textContent = "Basic training complete! Click 'Next' to play the melody.";
         showNextButton();
     }
 }
@@ -65,9 +61,10 @@ function startMelodyTraining() {
         trainingMessage.textContent = `Play ${currentMelody.name}. Press the ${currentNote} key.`;
         highlightNote(currentNote);
     } else {
-        trainingMessage.textContent = `${currentMelody.name} complete! Click 'Next' to continue.`;
+        trainingMessage.textContent = `${currentMelody.name} complete! Great job!`; //No next button
         melodyIndex = 0;
-        showNextButton();
+         pianoKeys.forEach(key => key.classList.remove('highlight')); // stop to highlight any keys
+        //showNextButton();  //Do not show next button
     }
 }
 
@@ -79,7 +76,7 @@ function showNextButton() {
         if (!basicTrainingCompleted) {
             startBasicTraining();
         } else {
-            currentMelodyIndex++;
+            //currentMelodyIndex++; //Not neccesary
             startMelodyTraining();
         }
     };
