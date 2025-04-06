@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano Training</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">    <style>
         #training-message {
             font-size: 1.5em;
             margin-top: 20px;
@@ -19,8 +18,7 @@
 <body>
     <div class = "container">
     <h1>Piano Training</h1>
-    <button onclick="location.href='index.html'">Back</button>
-
+    <button onclick="location.href='{{ url_for('index') }}'">Back</button>
     <div class="piano">
         <div class="key white" data-note="c4" data-key="a"><span>C4</span></div>
         <div class="key white" data-note="d4" data-key="s"><span>D4</span></div>
@@ -32,18 +30,17 @@
         <div class="key white" data-note="c5" data-key="k"><span>C5</span></div>
     </div>
     <div id="audio-container" style="display: none;">
-        <audio id="audio_c4" src="notes_c4-c5/c4.wav" preload="auto"></audio>
-        <audio id="audio_d4" src="notes_c4-c5/d4.wav" preload="auto"></audio>
-        <audio id="audio_e4" src="notes_c4-c5/e4.wav" preload="auto"></audio>
-        <audio id="audio_f4" src="notes_c4-c5/f4.wav" preload="auto"></audio>
-        <audio id="audio_g4" src=notes_c4-c5/g4.wav" preload="auto"></audio>
-        <audio id="audio_a4" src="notes_c4-c5/a4.wav" preload="auto"></audio>
-        <audio id="audio_b4" src="notes_c4-c5/b4.wav" preload="auto"></audio>
-        <audio id="audio_c5" src="notes_c4-c5/c5.wav" preload="auto"></audio>
+        <audio id="audio_c4" src="{{ url_for('static', filename='audio/c4.wav') }}" preload="auto"></audio>
+        <audio id="audio_d4" src="{{ url_for('static', filename='audio/d4.wav') }}" preload="auto"></audio>
+        <audio id="audio_e4" src="{{ url_for('static', filename='audio/e4.wav') }}" preload="auto"></audio>
+        <audio id="audio_f4" src="{{ url_for('static', filename='audio/f4.wav') }}" preload="auto"></audio>
+        <audio id="audio_g4" src="{{ url_for('static', filename='audio/g4.wav') }}" preload="auto"></audio>
+        <audio id="audio_a4" src="{{ url_for('static', filename='audio/a4.wav') }}" preload="auto"></audio>
+        <audio id="audio_b4" src="{{ url_for('static', filename='audio/b4.wav') }}" preload="auto"></audio>
+        <audio id="audio_c5" src="{{ url_for('static', filename='audio/c5.wav') }}" preload="auto"></audio>
     </div>
 
     <p id="training-message"></p>
     </div>
-    <script src="training.js"></script>
-</body>
+<script src="{{ url_for('static', filename='js/training.js') }}"></script></body>
 </html>
