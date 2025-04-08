@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Piano</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
 <body>
     <div class="container">
-        <div class="landing-page">
-            <h1>Welcome to Web Piano</h1>
-            <button class="landing-button" onclick="location.href='{{ url_for('piano_page') }}'">Piano</button>
-            <button class="landing-button" onclick="location.href='{{ url_for('training_page') }}'">Training</button>
+        <h1>Welcome to ESP32 Web Piano</h1>
+        <p>Play freely, practice with mini-games, and enjoy the music!</p>
+        <a href="{{ url_for('piano_page') }}" class="button-link">Free Play Piano</a>
+        <a href="{{ url_for('minigames_page') }}" class="button-link">Mini-Games</a>
         </div>
-    </div>
-</body>
+    </body>
 </html>

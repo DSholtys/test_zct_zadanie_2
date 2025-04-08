@@ -11,8 +11,8 @@
 #define TOUCH_PIN_B4  T7  // GPIO 27
 #define TOUCH_PIN_C5  T8  // GPIO 33
 
-const char* ssid = "iphone24";
-const char* password = "123321123";
+const char* ssid = "golovchyk";
+const char* password = "123123123";
 WebSocketsServer webSocket = WebSocketsServer(81);
 
 bool pressed[8] = {false}; // Состояния для 8 нот

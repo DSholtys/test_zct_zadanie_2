@@ -1,170 +1,254 @@
+/* src/flaskpiano/app/static/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'); /* Import font */
+
+/* Basic Reset & Body Styling */
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif; /* Apply imported font */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Gradient Background */
-    background: linear-gradient(to bottom, #a0c4ff, #f0f0f0);
-    min-height: 100vh; /* Ensure full height */
-    margin: 0; /* Remove default body margins */
-    padding-top: 20px; /* Add some padding at the top */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center content horizontally */
+    /* Enhanced background gradient */
+    background: linear-gradient(135deg, #6a85b6 0%, #bac8e0 100%);
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    margin: 0;
+    padding: 30px 15px; /* Add padding top and sides */
+    color: #333; /* Default text color */
+    box-sizing: border-box;
 }
 
-/* Framed Content Container */
+/* Content Container */
 .container {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-    padding: 20px;
-    margin-bottom: 20px;
-    width: 80%; /* Adjust width as needed */
-    max-width: 800px; /* Maximum width for larger screens */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    background-color: rgba(255, 255, 255, 0.98); /* Slightly transparent white */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Softer, deeper shadow */
+    padding: 35px 45px; /* Increased padding */
+    margin-bottom: 30px;
+    width: 95%; /* Responsive width */
+    max-width: 750px; /* Max width for larger screens */
+    box-sizing: border-box;
+    text-align: center; /* Center text within the container */
 }
 
-button {
-    padding: 12px 24px;
-    font-size: 1.2em;
-    margin: 10px;
+h1 {
+    color: #3a3e58; /* Darker heading color */
+    margin-bottom: 30px;
+    font-weight: 700; /* Bolder heading */
+}
+
+/* Button and Link Styling (Unified) */
+button, .button-link {
+    padding: 12px 30px; /* Slightly adjusted padding */
+    font-size: 1em; /* Standard font size */
+    font-weight: 500;
+    margin: 10px 8px;
     cursor: pointer;
-    border-radius: 8px;
-    background-color: #668cff;
-    color: white;
+    border-radius: 30px; /* More rounded buttons */
+    /* Updated gradient */
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    color: #4a4e69;
     border: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-    width: 150px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease-in-out; /* Smooth transitions */
+    text-decoration: none;
+    display: inline-block;
+    min-width: 150px;
     text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
 }
 
-button:hover {
-    background-color: #ffa0ce;
+button:hover, .button-link:hover {
+    /* Engaging hover gradient */
+    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+    color: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* Lift effect */
 }
 
+button:active, .button-link:active {
+    transform: translateY(1px); /* Press effect */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+}
+
+/* Piano Styling */
 .piano {
-    display: flex;
-    position: relative;
-    background-color: #444; /* Dark gray background */
-    padding: 10px;         /* Smaller padding */
-    border-radius: 15px;   /* Rounded corners */
-    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-    margin-top: 20px;
-    height: 150px;      /* Shorter height */
-    width: 100%;         /* Full width within container */
-    max-width: 600px;   /* Maximum width of the piano */
-    margin-left: auto;   /* Center the piano */
-    margin-right: auto;
+    display: flex; /* Arrange keys side-by-side */
+    position: relative; /* For positioning black keys later if needed */
+    background-color: #404040; /* Darker piano body */
+    padding: 20px; /* Increased padding around keys */
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35), inset 0 2px 5px rgba(255,255,255,0.1); /* Inner + outer shadow */
+    margin: 35px auto;
+    height: 190px; /* Slightly taller piano */
+    width: 100%;
+    max-width: 600px; /* Constrain max width */
 }
+
+/* General Key Styling */
 .key {
-    border: 1px solid #555;
+    border: 1px solid #b0b0b0;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 5px;
+    align-items: flex-end; /* Text at the bottom */
+    padding-bottom: 12px;
     font-weight: bold;
-    cursor: default;
-    transition: background-color 0.1s ease, box-shadow 0.1s ease;
-    font-size: 0.8em;  /* Smaller font size for notes */
-}
-
-
-.key.white {
-    width: 12.5%;       /* Equal width white keys */
-    height: 100%;
-    background-color: white;
-    color: #333;
-    border-radius: 8px;  /* More rounded corners */
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-    margin: 0;           /* No margin between keys */
-}
-
-.key.black {
-    width: 38px;
-    height: 60%; /* Черные короче белых */
-    background-color: #222;
-    color: white;
-    position: absolute; /* Позиционируем относительно .piano */
-    z-index: 10; /* Поверх белых клавиш */
-    top: 20px; /* Отступ от верха .piano (совпадает с padding) */
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-}
-
-/* Позиционирование черных клавиш */
-.key.black.c4s { left: calc(20px + 60px * 1 - 38px / 2); } /* Между C4 и D4 */
-.key.black.d4s { left: calc(20px + 60px * 2 - 38px / 2); } /* Между D4 и E4 */
-.key.black.f4s { left: calc(20px + 60px * 4 - 38px / 2); } /* Между F4 и G4 */
-.key.black.g4s { left: calc(20px + 60px * 5 - 38px / 2); } /* Между G4 и A4 */
-.key.black.a4s { left: calc(20px + 60px * 6 - 38px / 2); } /* Между A4 и B4 */
-
-
-/* Стиль для активной (нажатой) клавиши */
-.key.active {
-    background-color: #a0c4ff; /* Цвет подсветки для белых */
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3); /* Эффект вдавливания */
-}
-
-.key.black.active {
-    background-color: #668cff; /* Цвет подсветки для черных (если будут добавлены) */
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
-}
-
-/* Текст внутри клавиш */
-.key span {
-    font-size: 12px;
-}
-
-#ws-status {
-    margin-top: 20px;
-    font-style: italic;
-    color: #555;
-}
-
-/* Existing styles */
-
-/* Landing Page Styles (Add to the top of your file or in a separate block) */
-.landing-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Make it full height */
-    text-align: center;
-}
-
-.landing-button {
-    padding: 12px 24px; /* Slightly larger buttons */
-    font-size: 1.2em;
-    margin: 10px;
     cursor: pointer;
-    border-radius: 8px;
-    background-color: #668cff;
+    transition: all 0.08s ease; /* Faster transition for key press */
+    font-size: 0.85em;
+    user-select: none; /* Prevent text selection */
+}
+
+/* White Key Styling */
+.key.white {
+    width: 12.5%; /* 100% / 8 keys */
+    height: 100%;
+    /* Smoother white gradient */
+    background: linear-gradient(to bottom, #ffffff 85%, #e8e8e8 100%);
+    color: #444;
+    border-radius: 0 0 6px 6px; /* Rounded bottom corners */
+    /* Refined shadow for 3D effect */
+    box-shadow: inset 0 -6px 4px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.2);
+    margin: 0 1.5px; /* Slightly larger gap */
+}
+.key.white:first-child { margin-left: 0; }
+.key.white:last-child { margin-right: 0; }
+
+/* Active (Pressed) Key Styling */
+.key.active, .key.white.active {
+    /* Brighter active state gradient */
+    background: linear-gradient(to bottom, #90caf9, #a6d8ff); /* Light blue */
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.2); /* Inset shadow for pressed effect */
+    transform: scale(0.97); /* Slightly smaller when pressed */
+    border-color: #888;
+    color: #222;
+}
+
+/* (Optional) Black Key Styling - Add HTML elements if needed */
+/*
+.key.black {
+    width: 8%;
+    height: 60%;
+    background: linear-gradient(to bottom, #333, #111);
     color: white;
-    border: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Button shadow */
-    transition: background-color 0.3s ease;
-    width: 150px; /* Equal width buttons */
-    text-align: center;
+    position: absolute;
+    z-index: 10;
+    top: 20px; // Matches piano padding
+    border-radius: 0 0 5px 5px;
+    box-shadow: inset 0 -4px 3px rgba(255,255,255,0.1), 0 4px 6px rgba(0,0,0,0.4);
+    border: 1px solid #555;
+    margin: 0;
+}
+.key.black.active {
+    background: linear-gradient(to bottom, #444, #222);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    transform: scale(0.98);
+}
+*/
+
+/* WebSocket Status Text */
+#ws-status {
+    margin-top: 25px;
+    font-style: italic;
+    color: #5a6a7e; /* Muted blue-gray color */
+    font-size: 0.9em;
 }
 
-.landing-button:hover {
-    background-color: #ffa0ce; /* Lighter blue on hover */
-    transition: 0.7;
+/* Styles for Mini-Games Page */
+#melody-selection {
+    margin-bottom: 25px;
+    display: flex; /* Align label, select, button horizontally */
+    justify-content: center; /* Center items */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-/* Training page key highlight */
+#melody-selection label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #3a3e58;
+}
+
+#melody-select {
+    padding: 10px 15px;
+    border-radius: 20px; /* Match button roundness */
+    border: 1px solid #ccc;
+    min-width: 220px;
+    font-size: 0.95em;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+#melody-select:focus {
+    outline: none;
+    border-color: #7f7fd5; /* Highlight focus */
+}
+
+#start-game-btn { /* Style for the optional start button */
+     margin-left: 15px; /* Space from dropdown */
+}
+
+
+/* Game/Training Message Area */
+#game-message { /* Updated ID */
+    font-size: 1.3em;
+    margin-top: 30px;
+    color: #6a85b6; /* Theme color for messages */
+    min-height: 35px;
+    font-weight: 500;
+}
+
+/* Highlighted Key for Mini-Games/Training */
 .key.highlight {
-    background-color: #ffff99; /* Example highlight color */
-    animation: pulse 1s infinite alternate;
+    /* Use a distinct color or animation for prompts */
+    /* Example: Yellowish Glow Animation */
+    animation: pulse-glow 1.3s infinite alternate ease-in-out;
+    /* Ensure highlight overrides active state visually if needed, */
+    /* but don't prevent the .active class for sound logic */
+    position: relative; /* Needed for pseudo-element glow */
+    z-index: 5; /* Slightly above normal keys */
 }
 
-/* Key Pulse Animation */
-@keyframes pulse {
+/* Keyframes for Highlight Animation */
+@keyframes pulse-glow {
     0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 153, 0.7);
+        /* Keep original background but add glow */
+        box-shadow: inset 0 -6px 4px rgba(0,0,0,0.08),
+                    0 2px 2px rgba(0,0,0,0.2),
+                    0 0 8px 2px rgba(255, 235, 59, 0.7); /* Yellow glow */
+        transform: scale(1.02); /* Slight expansion */
     }
     100% {
-        box-shadow: 0 0 0 10px rgba(255, 255, 153, 0);
+         box-shadow: inset 0 -6px 4px rgba(0,0,0,0.08),
+                     0 2px 2px rgba(0,0,0,0.2),
+                     0 0 16px 5px rgba(255, 235, 59, 0.4); /* Larger, fainter glow */
+         transform: scale(1); /* Back to normal size */
+    }
+}
+
+/* Media Query for smaller screens (optional refinement) */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px 20px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    .piano {
+        height: 160px;
+        padding: 15px;
+    }
+    .key span {
+       font-size: 10px; /* Smaller text on keys */
+    }
+    #melody-selection {
+        flex-direction: column; /* Stack select dropdown below label */
+    }
+    #melody-select {
+        margin-top: 8px;
+        width: 80%; /* Wider select on mobile */
+    }
+     #start-game-btn {
+        margin-left: 0;
+        margin-top: 10px; /* Space when stacked */
     }
 }

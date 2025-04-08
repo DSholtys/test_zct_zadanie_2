@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en"> <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title> <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Add specific styles if needed, though most are in style.css now */
+        #melody-selection { margin-bottom: 25px; }
+        #melody-selection label { font-weight: bold; margin-right: 10px;}
+    </style>
 </head>
 <body>
-    <div class="container"> <h1>ESP32 Web Piano - Free Play</h1>
-        <a href="{{ url_for('index') }}" class="button-link" style="margin-bottom: 20px;">Back to Home</a>
+    <div class="container"> <h1>Piano Mini-Games</h1>
+        <a href="{{ url_for('index') }}" class="button-link" style="margin-bottom: 15px;">Back to Home</a>
+
+        <div id="melody-selection">
+            <label for="melody-select">Choose a Melody:</label>
+            <select id="melody-select">
+                <option value="">-- Select a Song --</option>
+                {% for melody in melodies %}
+                <option value="{{ melody.id }}">{{ melody.name }}</option>
+                {% endfor %}
+            </select>
+            <button id="start-game-btn" style="display: none; margin-left: 15px;">Start Game</button>
+        </div>
 
         <div class="piano">
             <div class="key white" data-note="c4" data-key="a"><span>C4</span></div>
@@ -17,9 +34,7 @@
             <div class="key white" data-note="a4" data-key="h"><span>A4</span></div>
             <div class="key white" data-note="b4" data-key="j"><span>B4</span></div>
             <div class="key white" data-note="c5" data-key="k"><span>C5</span></div>
-            </div>
-
-        <p id="ws-status">WebSocket Status: Connecting...</p>
+        </div>
 
         <div id="audio-container" style="display: none;">
             <audio id="audio_c4" src="{{ url_for('static', filename='audio/c4.wav') }}" preload="auto"></audio>
@@ -30,7 +45,11 @@
             <audio id="audio_a4" src="{{ url_for('static', filename='audio/a4.wav') }}" preload="auto"></audio>
             <audio id="audio_b4" src="{{ url_for('static', filename='audio/b4.wav') }}" preload="auto"></audio>
             <audio id="audio_c5" src="{{ url_for('static', filename='audio/c5.wav') }}" preload="auto"></audio>
-            </div>
-    </div> <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        </div>
+
+        <p id="game-message">Select a melody to start playing!</p>
+        <p id="ws-status">WebSocket Status: Connecting...</p>
+
+    </div> <script src="{{ url_for('static', filename='js/minigames.js') }}"></script>
 </body>
 </html>
