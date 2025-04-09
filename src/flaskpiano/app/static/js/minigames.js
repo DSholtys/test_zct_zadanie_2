@@ -49,15 +49,6 @@ if (document.location.pathname === "/minigames") {
                     "e4", "g4", "c4", "d4", "e4", null, null,
                     "f4", "f4", "f4", "f4", "f4", "e4", "e4", "e4", //"e4",
                     "g4", "g4", "f4", "d4", "c4", null, null]
-        },
-         "twinkle_twinkle": {
-            name: "Twinkle Twinkle Little Star",
-            notes: ["c4", "c4", "g4", "g4", "a4", "a4", "g4", null,
-                    "f4", "f4", "e4", "e4", "d4", "d4", "c4", null,
-                    "g4", "g4", "f4", "f4", "e4", "e4", "d4", null,
-                    "g4", "g4", "f4", "f4", "e4", "e4", "d4", null,
-                    "c4", "c4", "g4", "g4", "a4", "a4", "g4", null,
-                    "f4", "f4", "e4", "e4", "d4", "d4", "c4", null]
         }
         // Add more melodies here following the same structure
         // "ode_to_joy": { name: "Ode to Joy", notes: ["e4", "e4", "f4", ...] }
